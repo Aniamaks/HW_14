@@ -9,7 +9,6 @@ class Human:
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
 
-
 class Student(Human):
 
     def __init__(self, gender, age, first_name, last_name, record_book):
@@ -18,7 +17,6 @@ class Student(Human):
 
     def __str__(self):
         return f'{self.first_name} {self.last_name} {self.record_book}'
-
 
 class Group:
 
@@ -44,18 +42,14 @@ class Group:
         all_students = ''
         for student in self.group:
             all_students += str(student) + '\n'
-        return f'Number:{self.number}\n {all_students}'
-
+        return f'Number:{self.number}\n {all_students} '
 
 st1 = Student('Male', 30, 'Steve', 'Jobs', 'AN142')
 st2 = Student('Female', 25, 'Liza', 'Taylor', 'AN145')
-
 gr = Group('PD1')
 gr.add_student(st1)
 gr.add_student(st2)
-
 print(gr)
-
 assert str(gr.find_student('Jobs')) == str(st1), 'Test1'
 assert gr.find_student('Jobs2') is None, 'Test2'
 assert isinstance(gr.find_student('Jobs'), Student) is True, 'Метод пошуку повинен повертати екземпляр'
